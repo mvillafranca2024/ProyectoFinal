@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cines Renoir | Promociones </title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d40bbd092.js" crossorigin="anonymous"></script>
+    <script defer src="JS/index.js"></script>
+</head>
+
+<body>
+
+    <!-- En el Header encontraremos el logo, el menú de navegación y dos botones: uno de acceso y otro un menú deslizable. Los iconos se agregan desde el código proporcionado en FontAwesome -->
+    <div class="Header">
+        <div class="Logo">
+            <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+
+        </div>
+        <nav class="Menu_Header">
+            <ul>
+                <li><a href="index.html">cartelera</a></li>
+                <li><a href="promociones.html">promociones</a></li>
+                <li><a href="club.html">club Renoir</a></li>
+            </ul>
+        </nav>
+
+        <div class="MenuButton" id="MenuBurger">
+            <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </div>
+
+        <div class="BotonSocio">
+            <i class="fa-regular fa-circle-user"></i>
+            acceso socios club
+        </div>
+        <div class="BotonCiudad" id="botonCiudad">
+            <i class="fa-solid fa-caret-right" style="color: #000000;"></i>
+            Barcelona
+        </div>
+
+    </div>
+
+    <!-- Este es el menú que aparecerá en el responsive y colocaremos en el JavaScript -->
+    <div class="MenuHeaderShow" id="MenuMobile">
+        <ul class="MenuMobileList">
+            <li onclick="window.location.href='index.html'">Cartelera</li>
+            <li onclick="window.location.href='promociones.html'">Promociones</li>
+            <li onclick="window.location.href='club.html'">Club Renoir</li>
+            <li onclick="window.location.href='#'">Próximamente</li>
+            <li onclick="window.location.href='#'">Acceso Socios Club</li>
+        </ul>
+    </div>
+
+    <!-- Este Container muestra imágenes del cine reproducidas en automático -->
+
+    <section class="ContainerPrincipal">
+        <div class="FotoPrincipal">
+            <img src="Assets/banner_promociones.png" alt="BannerPromociones">
+        </div>
+
+        <!-- Es la barra que separa una sección de otra -->
+        <div class="barra-celeste"></div>
+
+        <!-- Container Precios contendrá los precios de los boletos. Contendrá texto y las imagenes de los tickets-->
+
+        <div class="Container_InfoPrecios">
+            <h1 class="Titulo_Precio">Precios para todos los bolsillos</h1>
+
+            <!-- Colocamos una condición para que el enlace se abra en una ventana nueva -->
+            <p>Renoir garantiza que el precio de las entradas es más barato comprándolas por Internet que adquiriéndolas
+                en taquilla. Excepto pases especiales (Ej. Fiesta del cine) en cuyo caso será igual que en taquilla.
+                Adquiere tus entradas en <a href="https://www.pillalas.com/" target="_blank"
+                    rel="noopener noreferrer">pillalas.com</a>. Todos los precios incluyen IVA
+                y gastos de gestión.
+            </p>
+        </div>
+
+        <!-- En estos contenedores colocamos saltos de línea para que quede mejor organizado -->
+        <div class="Container_Precio">
+
+            <!-- Precio para no socios - Martes y Jueves -->
+            <div class="Precio_Card Precio_NoSocio" aria-label="Precios para no socios - Martes y Jueves">
+                <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/" target="_blank"
+                    rel="noopener noreferrer" class="enlace-completo">
+                    <h2 class="Precio_Header">Precios para no socios</h2>
+                    <img src="Assets/8_Ticket.png" alt="Ticket para Martes y Jueves, no festivos" class="ticket-img">
+                    <div class="Precio_Dia">Martes y Jueves <br> (no festivos)</div>
+                    <div class="Precio_Web">Precio pillalas.com 8.40€ </div>
+                </a>
+            </div>
+
+            <!-- Precio para no socios - Viernes a Domingo y festivos -->
+            <div class="Precio_Card Precio_NoSocio" aria-label="Precios para no socios - Fin de semana y festivos">
+                <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/" target="_blank"
+                    rel="noopener noreferrer" class="enlace-completo">
+                    <h2 class="Precio_Header">Precios para no socios</h2>
+                    <img src="Assets/9_Ticket.png" alt="Ticket para Viernes, Sábado, Domingo y festivos"
+                        class="ticket-img">
+                    <div class="Precio_Dia">Viernes, Sábado, <br> Domingo y festivos</div>
+                    <div class="Precio_Web">Precio pillalas.com 9.70€</div>
+                </a>
+            </div>
+
+            <!-- Precio para no socios - Lunes y Miércoles -->
+            <div class="Precio_Card Precio_NoSocio" aria-label="Precios para no socios - Lunes y Miércoles">
+                <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/" target="_blank"
+                    rel="noopener noreferrer" class="enlace-completo">
+                    <h2 class="Precio_Header">Precios para no socios</h2>
+                    <img src="Assets/5_Ticket.png" alt="Ticket para Lunes y Miércoles - Día del espectador"
+                        class="ticket-img">
+                    <div class="Precio_Dia">Lunes y Miércoles: <br> ¡Día del espectador!</div>
+                    <div class="Precio_Web">Precio pillalas.com 5.40€</div>
+                </a>
+            </div>
+
+            <!-- Precio para socios - Martes, Jueves y Viernes -->
+            <div class="Precio_Card Precio_Socio" aria-label="Precios para socios - Martes, Jueves y Viernes">
+                <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/" target="_blank"
+                    rel="noopener noreferrer" class="enlace-completo">
+                    <h2 class="Precio_Header_Socio">Precios para socios</h2>
+                    <img src="Assets/7_Ticket.png" alt="Ticket para Martes, Jueves y Viernes, no festivos"
+                        class="ticket-img">
+                    <div class="Precio_Dia">Martes, Jueves y Viernes <br> (no festivos)</div>
+                    <div class="Precio_Web">Precio pillalas.com 6.90€</div>
+                </a>
+            </div>
+
+            <!-- Precio para socios - Fin de semana -->
+            <div class="Precio_Card Precio_Socio" aria-label="Precios para socios - Fin de semana">
+                <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/" target="_blank"
+                    rel="noopener noreferrer" class="enlace-completo">
+                    <h2 class="Precio_Header_Socio">Precios para socios</h2>
+                    <img src="Assets/8_1_Ticket.png" alt="Ticket para Sábado y Domingo - Fin de semana y festivos"
+                        class="ticket-img">
+                    <div class="Precio_Dia"> Fines de semana (Sábado, Domingo) y festivos</div>
+                    <div class="Precio_Web"> Precio pillalas.com 7.90€ </div>
+                </a>
+            </div>
+
+            <!-- Tres bloques con las promociones especiales con su respectiva imagen, texto y título-->
+            <section class="Especiales_Container">
+                <div class="Especiales_Contenido">
+                    <h2 class="Especiales_Titulo">Promociones especiales</h2>
+                    <p class="Especiales_Descripcion">En Renoir queremos que todos puedan disfrutar de una experiencia
+                        de
+                        cine única. Por eso, hemos creado una serie de promociones especiales pensadas para nuestros
+                        espectadores más fieles y aquellos que nos visitan en momentos específicos.</p>
+                    <div class="Especiales">
+                        <div class="Promocion">
+                            <img src="Assets/Cine_Senior.png" alt="Cine Senior">
+                            <div class="Promocion-info">
+                                <div class="Promocion-titulo">Cine Senior</div>
+                                <div class="Promocion-contenido">Todos los martes, entradas a 2€ para mayores de 65
+                                    años.
+                                    Adquiérelas exclusivamente en nuestra taquilla con tu documento de identidad.</div>
+                            </div>
+                        </div>
+                        <div class="Promocion">
+                            <img src="Assets/Vuelve_Cine.png" alt="Vuelve al cine">
+                            <div class="Promocion-info">
+                                <div class="Promocion-titulo">Vuelve al cine</div>
+                                <div class="Promocion-contenido">Obtén un código de descuento en tu siguiente compra con
+                                    tu
+                                    entrada*. Válido para pases comprendidos en los 10 días siguientes de generado el
+                                    código. No
+                                    válido los miércoles.</div>
+                            </div>
+                        </div>
+                        <div class="Promocion">
+                            <img src="Assets/Estudiante_Joven.png" alt="Estudiantes y Jóvenes">
+                            <div class="Promocion-info">
+                                <div class="Promocion-titulo">Estudiantes y jóvenes</div>
+                                <div class="Promocion-contenido">Primera sesión de los viernes, entrada a 7€ para
+                                    estudiantes y
+                                    carnet joven debidamente acreditados. No válido para festivos. Válido en taquilla.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Promocion-disclaimer">*Válido para pases comprendidos en los 10 siguientes días al pase
+                        que
+                        generó el código.</div>
+                </div>
+            </section>
+
+            <!-- Sección de información general que incluye un bloque de texto y enlace a Google Maps-->
+
+            <section class="Informacion_Container">
+                <div class="Informacion_Contenido">
+                    <div class="Informacion_Header">
+                        <h2 class="Informacion_Titulo">¿Cómo llegar?</h2>
+                    </div>
+                    <h3 class="Cine_Nombre">Renoir Floridablanca (7 salas)</h3>
+                    <p class="Cine_Direccion">FLORIDABLANCA, 135 - 08011 BARCELONA</p>
+
+                    <ul class="Informacion_Lista">
+                        <li><strong>Buses:</strong> 20, 37, 41, 55, 91 y 141</li>
+                        <li><strong>Metro:</strong> Universitat y Sant Antoni</li>
+                        <li><strong>Parking:</strong> Recinto con parking próximo. Primera hora de parking gratis para
+                            nuestros clientes en el parking "Urgell" en la calle Floridablanca 119-121 (Entre Villarroel
+                            y
+                            Urgell)</li>
+                        <li><strong>Contacto:</strong> 91 334 21 77 (de lunes a viernes, no festivos, de 9:00 a 14:00)
+                        </li>
+                        <li><strong>Accesibilidad:</strong> Recinto adaptado a personas con movilidad reducida</li>
+                    </ul>
+                </div>
+                <div class="Informacion_Mapa">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.649529914632!2d2.159972176095058!3d41.38169857130049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a28a8f499973%3A0xcafee4a69f7973bd!2sCines%20Renoir%20Floridablanca!5e0!3m2!1ses!2ses!4v1730158695588!5m2!1ses!2ses"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+
+            <!-- Footer de igual estructura que en toda la página-->
+            <footer>
+                <div class="ContainerSocial">
+                    <div class="LogoFooter">
+                        <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+                    </div>
+                </div>
+
+                <div class="FooterMenu">
+                    <div class="ListaFooter">
+                        <ul>
+                            <li><a href="index.html">cartelera</a></li>
+                            <li><a href="promociones.html">promociones</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ListaFooter">
+                        <ul>
+                            <li><a href="club.html">hazte socio</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- En esta parte de redes sociales, optamos por abrir los enlaces fuera del sitio web -->
+
+                    <div class="ListaFooter">
+                        <div class="FooterSocial">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/cinesrenoir/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://x.com/cinesrenoir" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/cinesrenoir/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </footer>
+
+            <script>
+                function test() {
+                    console.log("inline js")
+                    let menuShown;
+                    document.getElementById("MenuMobile").style.display === "block" ? menuShown = "none" : menuShown = "block";
+
+                    document.getElementById("MenuMobile").style.display = menuShown;
+                }
+            </script>
+
+</body>
+
+
+</html>

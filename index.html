@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cines Renoir | Web oficial</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d40bbd092.js" crossorigin="anonymous"></script>
+    <script defer src="JS/index.js"></script>
+</head>
+
+<body>      
+
+    <!-- En el Header encontraremos el logo, el menú de navegación y dos botones: uno de acceso y otro un menú deslizable. Los iconos se agregan desde el código proporcionado en FontAwesome -->
+    <div class="Header">
+        <div class="Logo">
+            <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+
+        </div>
+        <nav class="Menu_Header">
+            <ul>
+                <li><a href="index.html">cartelera</a></li>
+                <li><a href="promociones.html">promociones</a></li>
+                <li><a href="club.html">club Renoir</a></li>
+            </ul>
+        </nav>
+
+        <div class="MenuButton" id="MenuBurger">
+            <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </div>
+
+        <div class="BotonSocio">
+            <i class="fa-regular fa-circle-user"></i>
+            acceso socios club
+        </div>
+        <div class="BotonCiudad" id="botonCiudad">
+            <i class="fa-solid fa-caret-right" style="color: #000000;"></i>
+            Barcelona
+        </div>
+
+    </div>
+
+    <!-- Este es el menú que aparecerá en el responsive y colocaremos en el JavaScript. También lo linkearemos a las páginas internas -->
+
+    <div class="MenuHeaderShow" id="MenuMobile">
+        <ul class="MenuMobileList">
+            <li onclick="window.location.href='index.html'">Cartelera</li>
+            <li onclick="window.location.href='promociones.html'">Promociones</li>
+            <li onclick="window.location.href='club.html'">Club Renoir</li>
+            <li onclick="window.location.href='#'">Acceso Socios Club</li>
+        </ul>
+    </div>
+
+    <!-- Denominamos ContainerPrincipal al slider que contendrá la imagen de la película, detalles de la misma y dos flechas laterales
+      para navegar dentro de él. Al dar click, el usuario se redirige a la página con explicación detallada de la película -->
+
+    <section class="ContainerPrincipal">
+        <div class="Slider">
+            <img src="Assets/Joker_Slider.jpg" alt="Imagen 0" class="Slider-img isVisible">
+            <img src="Assets/Sustancia_Slider.png" alt="Imagen 1" class="Slider-img">
+            <img src="Assets/Megalopolis_Slider.png" alt="Imagen 2" class="Slider-img">
+            <img src="Assets/Flames_Slider.png" alt="Imagen 3" class="Slider-img">
+        </div>
+
+        <div class="barra-celeste"></div>
+
+
+        <!-- Información de cada imagen del slider -->
+        <div class="Slider-info isVisible">
+            <div class="Slider-info-titulo">Joker: Folie à Deux</div>
+            <div class="Slider-info-menu">
+                <div class="Director">Todd Phillips</div>
+                <div class="Vose">Vose</div>
+                <div class="Duracion">137 minutos</div>
+            </div>
+        </div>
+
+        <div class="Slider-info">
+            <div class="Slider-info-titulo">La Sustancia</div>
+            <div class="Slider-info-menu">
+                <div class="Director">Coralie Fargeat</div>
+                <div class="Vose">Vose</div>
+                <div class="Duracion">131 minutos</div>
+            </div>
+        </div>
+
+        <div class="Slider-info">
+            <div class="Slider-info-titulo">Megalopolis</div>
+            <div class="Slider-info-menu">
+                <div class="Director">Francis Ford Coppola</div>
+                <div class="Vose">Vose</div>
+                <div class="Duracion">153 minutos</div>
+            </div>
+        </div>
+
+        <div class="Slider-info">
+            <div class="Slider-info-titulo">Casa en Flames</div>
+            <div class="Slider-info-menu">
+                <div class="Director">Dani De La Orden</div>
+                <div class="Vose">Catalán y Castellano</div>
+                <div class="Duracion">110 minutos</div>
+            </div>
+        </div>
+
+        <button class="Slider-arrow Next">
+            <i class="fa-solid fa-circle-arrow-right fa-lg" style="color: #ffffff;"></i>
+        </button>
+        <button class="Slider-arrow Prev">
+            <i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #ffffff;"></i>
+        </button>
+
+    </section>
+
+    <!-- Container Cartelera contiene un Menú conformado por un título y una barra de navegación con menú desplegable para seleccionar la fecha en la que
+ se quiera asistir al cine. Esta sección también contendrá el grid con las 8 películas del cine -->
+
+    <section class="Container_Cartelera">
+        <div class="MenuCartelera">
+            <h1 class="TituloCartelera">¿Vamos al cine hoy?</h1>
+            <div class="FechaCartelera">
+                <label for="selectFecha">Ver cartelera para:</label>
+                <select id="selectFecha" name="fecha">
+                    <option value="2024-10-21">Lunes 21 de octubre</option>
+                    <option value="2024-10-22">Martes 22 de octubre</option>
+                    <option value="2024-10-23">Miércoles 23 de octubre</option>
+                    <option value="2024-10-24">Jueves 24 de octubre</option>
+                    <option value="2024-10-25">Viernes 25 de octubre</option>
+                    <option value="2024-10-26">Sábado 26 de octubre</option>
+                    <option value="2024-10-27">Domingo 27 de octubre</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Crearemos 8 elementos iguales divididos en filas de 4x4. Cada botón de horario se redigirá a la página de compra online en una nueva ventana -->
+        <div class="GridCartelera">
+            <div class="Joker">
+                <img src="Assets/Joker.png" alt="Joker">
+                <h2 class="Titulo_Joker">Joker: Folie à Deux</h2>
+                <div class="Sala_Joker">Sala 02</div>
+                <div class="Horarios_Joker">
+                        <span>18:10</span>
+                        <span>21:40</span>
+                </div>
+            </div>
+
+            <div class="Megalopolis">
+                <img src="Assets/Megalopolis.png" alt="Megalopolis">
+                <h2 class="Titulo_Megalopolis">Megalopolis</h2>
+                <div class="Sala_Megalopolis">Sala 05</div>
+                <div class="Horarios_Megalopolis">
+                        <span>16:00</span>
+                        <span>21:00</span>
+                  
+                </div>
+            </div>
+
+            <div class="Sustancia">
+                <img src="Assets/Sustancia.png" alt="Sustancia">
+                <h2 class="Titulo_Crossings">La Sustancia</h2>
+                <div class="Sala_Crossings">Sala 04</div>
+                <div class="Horarios_Crossings">
+                        <span>16:00</span>
+                        <span>18:00</span>
+                        <span>19:55</span>
+                </div>
+            </div>
+
+            <div class="Destellos">
+                <img src="Assets/Destellos.png" alt="Destellos">
+                <h2 class="Titulo_Destellos">Los Destellos</h2>
+                <div class="Sala_Destellos">Sala 01</div>
+                <div class="Horarios_Destellos">
+                        <span>18:10</span>
+                        <span>20:10</span>
+                </div>
+            </div>
+
+            <div class="Flames">
+                <img src="Assets/Flames.png" alt="Flames">
+                <h2 class="Titulo_Flames">Casa en Flames</h2>
+                <div class="Sala_Flames">Sala 07</div>
+                <div class="Horarios_Flames">
+                        <span>18:20</span>
+                        <span>22:30</span>
+                </div>
+            </div>
+
+            <div class="Roja">
+                <img src="Assets/Roja.png" alt="VirgenRoja">
+                <h2 class="Titulo_Roja">La virgen roja</h2>
+                <div class="Sala_Roja">Sala 03</div>
+                <div class="Horarios_Roja">
+                        <span>20:00</span>
+                </div>
+            </div>
+
+            <div class="Nevenka">
+                <img src="Assets/Nevenka.png" alt="Nevenka">
+                <h2 class="Titulo_Nevenka">Soy Nevenka</h2>
+                <div class="Sala_Nevenka">Sala 01</div>
+                <div class="Horarios_Nevenka">
+                        <span>16:00</span>
+                </div>
+            </div>
+
+            <div class="Cuarenta">
+                <img src="Assets/47.png" alt="CuarentaySiete">
+                <h2 class="Titulo_Cuarenta">El 47</h2>
+                <div class="Sala_Cuarenta">Sala 03</div>
+                <div class="Horarios_Cuarenta">
+                        <span>16:10</span>
+                        <span>18:15</span>
+                        <span>22:45</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Container_Promociones">
+        <div class="Promociones">
+            <img src="Assets/2_Cine_Senior.png" alt="EntradaSenior">
+            <h2>Vuelve el cine, <br> vuelve el Cine Sénior</h2>
+            <p>Todos los martes, entradas a 2€ para mayores de 65 años. Entradas disponibles solo en taquilla.</p>
+            <a href="promociones.html">
+                <button>saber más</button>
+            </a>
+        </div>
+
+        <div class="Promociones">
+            <img src="Assets/Club_Renoir.png" alt="Club Renoir">
+            <h2>Hazte socio del <br> Club Renoir</h2>
+            <p>Entradas a precio reducido, invitaciones a preestrenos y sorpresas por tu cumpleaños, ¿qué más?</p>
+            <a href="club.html">
+                <button>quiero ser socio</button>
+            </a>
+        </div>
+
+        <div class="Promociones">
+            <img src="Assets/Dia_Espectador.png" alt="Día del espectador">
+            <h2>Día del espectador: <br> ¡vamos al cine!</h2>
+            <p>Para los fanáticos del cine, lunes y miércoles, ¡tu entrada a 5.50€! No válido para feriados.</p>
+            <a href="https://www.pillalas.com/cine/renoir-floridablanca/cartelera/">
+                <button>¡compra ahora!</button>
+            </a>
+        </div>
+    </section>
+
+    <section class="ContainerNewsletter">
+        <div class="NewsletterInfo">
+            <h2>Sucríbete a nuestro newsletter</h2>
+            <p>Te prometemos que te enamorarás de nuestras novedades</p>
+        </div>
+
+        <div class="NewsletterForm">
+            <form action="#">
+                <input type="email" placeholder="introduce tu e-mail">
+                <button type="submit">enviar</button>
+            </form>
+    </section>
+
+    <!-- Footer de igual estructura que en toda la página-->
+
+    <Footer>
+        <div class="ContainerSocial">
+            <div class="LogoFooter">
+                <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+            </div>
+
+        </div>
+
+        <div class="FooterMenu">
+            <div class="ListaFooter">
+                <ul>
+                    <li><a href="index.html">cartelera</a></li>
+                    <li><a href="promociones.html">promociones</a></li>
+                </ul>
+            </div>
+
+            <div class="ListaFooter">
+                <ul>
+                    <li><a href="club.html">hazte socio</a></li>
+                </ul>
+            </div>
+
+            <!-- En esta parte de redes sociales, optamos por abrir los enlaces fuera del sitio web -->
+
+            <div class="ListaFooter">
+                <div class="FooterSocial">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/cinesrenoir/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://x.com/cinesrenoir" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/cinesrenoir/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </Footer>
+
+
+    <!-- Este es el código que usaremos para el pop up que aparecerá al hacer click en cada película. Utilizamos "model content" al ser un elemento emergente -->
+    <!-- Modal Structure -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <!-- YouTube trailer iframe -->
+            <div class="trailer-container">
+                <iframe id="modalTrailer" width="100%" height="315" src="" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription">Aquí va la descripción de la película</p>
+            <a id="modalBuy" target="_blank"><button class="modalBuyButton">Comprar billetes</button></a>
+
+        </div>
+    </div>
+
+
+    <script>
+        
+    </script>
+
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,1611 @@
+/* Reset / Normalizador */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+:root {
+    font-size: 100%;
+}
+
+/* Código de la biblioteca de Google Fonts */
+body {
+    background-color: black;
+    font-size: 100%;
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+/* El estilo para el Header que acompañará toda la página */
+.Header {
+    width: 100%;
+    height: 6.25rem;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    box-sizing: border-box;
+    overflow-y: hidden !important;
+}
+
+/* Para los elementos del encabezado, dividimos el 100% de la pantalla para calcular el espacio que debe ocupar cada elemento */
+.Logo {
+    width: 12.5rem;
+    padding: 2.5rem;
+}
+
+.Logo img {
+    width: 100%;
+}
+
+.Menu_Header {
+    width: 55%;
+    align-items: center;
+}
+
+.Menu_Header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 1.25rem;
+}
+
+.Menu_Header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.Menu_Header ul li a:hover {
+    color: #00B0F6;
+}
+
+.BotonSocio {
+    width: 10.9375rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #00B0F6;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.BotonSocio i {
+    font-size: 13px;
+}
+
+.BotonSocio:hover {
+    background-color: white;
+    color: #00B0F6;
+}
+
+.BotonCiudad {
+    width: 9.375rem;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Ocultamos el menú que luego irá en el desplegable */
+#MenuMobile {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: black;
+}
+
+#MenuMobile.active {
+    max-height: 500px;
+    /* Lo ajustamos a lo requerido */
+}
+
+#MenuMobile ul li {
+    margin: 1rem auto 1rem 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+#MenuMobile ul li:hover {
+    color: black;
+    background-color: white;
+}
+
+.MenuMobileList {
+    color: #00B0F6;
+}
+
+.MenuMobileList:hover {
+    cursor: pointer;
+
+}
+
+/* Ocultamos el icono de la hamburguesa que después usaremos en el responsive */
+.MenuButton {
+    display: none;
+    color: #00B0F6;
+}
+
+.ContainerPrincipal {
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+}
+
+
+/* ESTILOS DEL HOME */
+/* Configuramos ahora el el slider principal del Home que contendrá 04 películas a manera de destacada. Al dar click se abrirá una suerte de popup con información de la película, el trailer y el botón para hacer la compra en línea */
+
+.Slider {
+    width: 100%;
+}
+
+.Slider-img {
+    display: block;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0%;
+    left: 0%;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.Slider-img.isVisible {
+    position: static;
+    opacity: 1;
+}
+
+.Slider-arrow {
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.Slider-arrow i {
+    color: white;
+    font-size: 30px;
+    opacity: 50%;
+}
+
+.Next {
+    right: 10px;
+
+}
+
+.Prev {
+    left: 10px;
+}
+
+.barra-celeste {
+    width: 100%;
+    height: 1.25rem;
+    background-color: #00B0F6;
+    position: relative;
+    bottom: 0;
+}
+
+/* Modifcamos las propiedades de la información del slider principal de las películas */
+
+.Slider-info {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    /* Para una transición sutil al dar click en las flechas */
+}
+
+.Slider-info.isVisible {
+    opacity: 1;
+}
+
+.Slider-info-menu {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    padding: 5px 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.Slider-info-titulo {
+    font-size: 48px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Usamos inline-block para colocar estos elementos informativos al lado de otro */
+.Director,
+.Vose,
+.Duracion {
+    padding: 5px 5px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: normal;
+    display: inline-block;
+    opacity: 70%;
+}
+
+/* El container de cartelera con la información básica de la semana */
+.Container_Cartelera {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+}
+
+.MenuCartelera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Daremos estilo al menú desplegable para las fechas */
+
+.FechaCartelera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+.FechaCartelera label {
+    align-items: center;
+    margin-right: 10px;
+}
+
+.FechaCartelera select {
+    align-items: center;
+    font-family: "Afacad Flux", sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.TituloCartelera {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* La cartelera principal del Home se compone de un grid de 4 columnas y 2 filas para colocar las películas de la semana. Cada una tiene su propio container */
+
+.GridCartelera {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "Joker Megalopolis Nevenka Destellos"
+        "Flames Roja Sustancia Cuarenta";
+}
+
+.Joker {
+    grid-area: Joker;
+}
+
+.Megalopolis {
+    grid-area: Megalopolis;
+}
+
+.Nevenka {
+    grid-area: Nevenka;
+}
+
+.Los-Destellos {
+    grid-area: Los-Destellos;
+}
+
+.Flames {
+    grid-area: Flames;
+}
+
+.Roja {
+    grid-area: Roja;
+}
+
+.Sustancia {
+    grid-area: Sustancia;
+}
+
+.Cuarenta {
+    grid-area: Cuarenta;
+}
+
+.GridCartelera h2 {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.GridCartelera .Sala_Joker,
+.GridCartelera .Sala_Megalopolis,
+.GridCartelera .Sala_Crossings,
+.GridCartelera .Sala_Destellos,
+.GridCartelera .Sala_Flames,
+.GridCartelera .Sala_Roja,
+.GridCartelera .Sala_Nevenka,
+.GridCartelera .Sala_Cuarenta {
+    font-size: 1rem;
+    color: white;
+    padding-bottom: .3125rem;
+}
+
+/* Estilo para los botones con los horarios de las películas. Al pasar el ratón sobre ellos, cambia de color para mejorar la experiencia de usuario */
+.GridCartelera .Horarios_Joker span,
+.GridCartelera .Horarios_Megalopolis span,
+.GridCartelera .Horarios_Crossings span,
+.GridCartelera .Horarios_Destellos span,
+.GridCartelera .Horarios_Flames span,
+.GridCartelera .Horarios_Roja span,
+.GridCartelera .Horarios_Nevenka span,
+.GridCartelera .Horarios_Cuarenta span {
+    display: inline-block;
+    background-color: #00B0F6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.GridCartelera .Horarios_Joker span:active,
+.GridCartelera .Horarios_Megalopolis span:active,
+.GridCartelera .Horarios_Crossings span:active,
+.GridCartelera .Horarios_Destellos span:active,
+.GridCartelera .Horarios_Flames span:active,
+.GridCartelera .Horarios_Roja span:active,
+.GridCartelera .Horarios_Nevenka span:active,
+.GridCartelera .Horarios_Cuarenta span:active {
+    background-color: #00B0F6;
+}
+
+.GridCartelera .Horarios_Joker span:hover,
+.GridCartelera .Horarios_Megalopolis span:hover,
+.GridCartelera .Horarios_Crossings span:hover,
+.GridCartelera .Horarios_Destellos span:hover,
+.GridCartelera .Horarios_Flames span:hover,
+.GridCartelera .Horarios_Roja span:hover,
+.GridCartelera .Horarios_Nevenka span:hover,
+.GridCartelera .Horarios_Cuarenta span:hover {
+    background-color: white;
+    color: #00B0F6;
+}
+
+.GridCartelera>div {
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Ligera animación a las posters de la película */
+
+.GridCartelera img:hover {
+    transform: scale(1.05);
+}
+
+.GridCartelera img {
+    max-width: 100%;
+    border-radius: .3125rem;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* La parte de las promociones son 03 elementos de la misma composición y enlazan a otras secciones de la página. Establecemos un ancho para cada bloque */
+
+.Container_Promociones {
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.Promociones {
+    text-align: center;
+    width: 30%;
+    min-width: 13.4375rem;
+}
+
+/* Aquí agregamos una rotación de animación para hacer el contenido más dinámico */
+.Promociones img {
+    width: 12.5rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.5s ease;
+}
+
+.Promociones img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.Promociones h2 {
+    color: #00B0F6;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.Promociones p {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.Promociones button {
+    background-color: #00B0F6;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.Promociones button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* El Newsletter es un apartado que permite la rápida inscripción a través de un envío de formulario sencillo (email) */
+.ContainerNewsletter {
+    background-color: #00B0F6;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NewsletterInfo {
+    flex: 1;
+    text-align: left;
+    margin-left: 3.75rem;
+}
+
+.NewsletterForm {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.NewsletterForm form {
+    display: flex;
+    align-items: center;
+}
+
+
+.NewsletterForm input[type="email"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 400px;
+    margin-right: 10px;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.NewsletterForm button {
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    max-height: fit-content;
+    margin-top: 10px;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.NewsletterForm button:hover {
+    background-color: white;
+    color: #00B0F6;
+}
+
+/* Ahora daremos formato al footer de la página */
+
+footer {
+    background-color: #000;
+    width: 100%;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ContainerSocial {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-left: 3.75rem;
+}
+
+.LogoFooter img {
+    width: 6.25rem;
+}
+
+.FooterSocial ul {
+    list-style: none;
+    display: flex;
+    gap: .625rem;
+}
+
+.FooterSocial ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: .875rem;
+}
+
+.FooterMenu {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    width: 60%;
+    gap: 2rem;
+}
+
+.ListaFooter ul li {
+    margin-bottom: 10px;
+}
+
+.ListaFooter ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ListaFooter ul li a:hover {
+    color: #00B0F6;
+}
+
+/* Responsive para el grid de la cartelera */
+
+@media screen and (max-width: 1200px) {
+    .GridCartelera {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Joker Megalopolis Nevenka"
+            "Destellos Flames Roja"
+            "Sustancia Cuarenta .";
+    }
+
+    .Joker {
+        grid-area: Joker;
+    }
+
+    .Megalopolis {
+        grid-area: Megalopolis;
+    }
+
+    .Nevenka {
+        grid-area: Nevenka;
+    }
+
+    .Destellos {
+        grid-area: Destellos;
+    }
+
+    .Flames {
+        grid-area: Flames;
+    }
+
+    .Roja {
+        grid-area: Roja;
+    }
+
+    .Sustancia {
+        grid-area: Sustancia;
+    }
+
+    .Cuarenta {
+        grid-area: Cuarenta;
+    }
+}
+
+/* Responsive para el Header, donde el Menu principal se oculta para dar paso al icono de hamburguesa */
+@media screen and (max-width: 1200px) {
+    .Header {
+        justify-content: space-between;
+        padding: 0.625rem 1.25rem;
+    }
+
+    .Logo {
+        margin-right: auto;
+        padding-left: 0.7rem !important;
+    }
+
+    .Menu_Header,
+    .BotonSocio,
+    .BotonCiudad {
+        display: none;
+    }
+
+    .MenuButton {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #00B0F6;
+        margin-right: 1.875rem;
+    }
+
+    /* Colocamos la sección de Neswletter en una columna */
+    .ContainerNewsletter {
+        background-color: #00B0F6;
+        color: white;
+        padding: 2rem;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .NewsletterInfo {
+        text-align: center;
+        margin-bottom: .625rem;
+    }
+
+    .NewsletterForm input[type="email"] {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 3px;
+        width: 200px;
+        font-family: "Afacad Flux", sans-serif;
+    }
+
+    .Promociones {
+        text-align: center;
+        width: 30%;
+        min-width: 13.4375rem;
+        margin-bottom: 1.875rem;
+    }
+
+    /* Para que la imagen del slider ocupe más espacio en la pantalla móvil */
+    .Slider {
+        height: 70vh;
+        justify-content: center;
+        max-width: 100%;
+        display: flex;
+
+    }
+
+    .Slider img {
+        height: 100%;
+        width: auto;
+    }
+
+    /* Para que el menú del footer esté mas centrado al responsive */
+
+    footer {
+        background-color: #000;
+        color: white;
+        padding: .9375rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Ahora haremos el responsive para el menú del container de la cartelera para que se coloque en una columna */
+    .Container_Cartelera {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.25rem 0;
+    }
+
+    .MenuCartelera {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .FechaCartelera {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .FechaCartelera label {
+        margin-right: 10px;
+    }
+
+    .FechaCartelera select {
+        font-family: "Afacad Flux", sans-serif;
+        background-color: #1a1a1a;
+        color: white;
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .TituloCartelera {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 784px) {
+    .GridCartelera {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Joker Megalopolis"
+            "Nevenka Destellos"
+            "Flames Roja"
+            "Sustancia Cuarenta";
+    }
+
+    .Joker {
+        grid-area: Joker;
+    }
+
+    .Megalopolis {
+        grid-area: Megalopolis;
+    }
+
+    .Nevenka {
+        grid-area: Nevenka;
+    }
+
+    .Destellos {
+        grid-area: Destellos;
+    }
+
+    .Flames {
+        grid-area: Flames;
+    }
+
+    .Roja {
+        grid-area: Roja;
+    }
+
+    .Sustancia {
+        grid-area: Sustancia;
+    }
+
+    .Cuarenta {
+        grid-area: Cuarenta;
+    }
+}
+
+
+
+
+/* ESTILOS DE PROMOCIONES */
+
+/* Empezamos con la imagen del Header */
+.FotoPrincipal {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FotoPrincipal img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Responsive para esta imagen del header */
+@media screen and (min-width: 1200px) {
+    .FotoPrincipal img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        margin-top: 2rem;
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 769px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        margin-top: 2rem;
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 468px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        padding-top: 1rem; 
+        font-size: 24px; 
+    }
+
+    .Container_Club_Content {
+        padding: 1rem 0; 
+        max-width: 100%; 
+    }
+}
+
+@media screen and (max-width: 467px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+/* Estilos generales del contenedor de precios que contendrá un título, el párrafo y 5 cajas con precios */
+
+.Container_InfoPrecios {
+    width: 90%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+}
+
+.Container_InfoPrecios h1 {
+    font-size: 32px;
+    text-align: left;
+}
+
+.Container_InfoPrecios p {
+    font-size: 0.875rem;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.Container_InfoPrecios a {
+    color: #00B0F6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para el contenedor de tarjetas de precios */
+
+.Container_Precio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+/* Estilos comunes para todas las tarjetas de precios */
+
+.Precio_Card {
+    width: 13.75rem;
+    margin: 0.625rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Encabezados de las tarjetas de precio */
+
+.Precio_Header,
+.Precio_Header_Socio {
+    font-size: .75rem;
+    color: white;
+    font-weight: bold;
+    padding: .125rem;
+    border-radius: 5px;
+    margin-bottom: .3125rem;
+}
+
+
+.Precio_Header {
+    background-color: #00B0F6;
+    /* Identificamos los dos precios por colores. En este caso para no socios es azul */
+}
+
+.Precio_Header_Socio {
+    background-color: black;
+    /* Identificamos los dos precios por colores. En este caso para no socios es negro */
+}
+
+/* Imagen de los tickets */
+
+.ticket-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: .3125rem;
+}
+
+/* Estilo para el nombre del día o la promoción */
+
+.Precio_Dia {
+    font-size: .875rem;
+    margin-bottom: .3125rem;
+    line-height: 1.1;
+    color: black;
+    font-weight: bold;
+}
+
+/* Estilo para el precio web */
+
+.Precio_Web {
+    font-size: .75rem;
+    padding: .125rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+/* Le quitamos el subrayado a los enlaces que llevan a la web del precio */
+.enlace-completo {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Color azul para precios de no socios y efecto de hover para cambiar el color de los botones */
+.Precio_Card.Precio_NoSocio .Precio_Web {
+    background-color: #00B0F6;
+}
+
+.Precio_Card.Precio_NoSocio .Precio_Web:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+/* Color negro para precios de no socios y efecto de hover para cambiar el color de los botones */
+.Precio_Card.Precio_Socio .Precio_Web {
+    background-color: black;
+
+}
+
+.Precio_Card.Precio_Socio .Precio_Web:hover {
+    cursor: pointer;
+    background-color: #00B0F6;
+    color: white;
+    text-decoration: none;
+}
+
+/* Efecto para elevar un poco la tarjeta y crearle una "caja" para poder identificarlas. Se cambiará el cursos para que el dar click se lleve a la página de compra */
+
+.Precio_Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Ahora daremos estilo a la sección de Promociones Especiales */
+
+.Especiales_Container {
+    width: 100%;
+    background-color: black;
+    padding: 3rem 0;
+}
+
+.Especiales_Contenido {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Título de la sección de Especiales */
+.Especiales_Titulo {
+    font-size: 2rem;
+    color: white;
+    text-align: left;
+}
+
+.Especiales_Descripcion {
+    font-size: 0.875rem;
+    line-height: 1.1;
+    text-align: left;
+    margin-bottom: 2.5rem;
+    color: white;
+}
+
+/* Contenedor de tarjetas de promociones */
+.Especiales {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos para cada promoción */
+.Promocion {
+    background-color: white;
+    color: #000;
+    border-radius: 5px;
+    width: 18.75rem;
+    margin: 0.625rem;
+}
+
+.Promocion img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: auto;
+}
+
+.Promocion-info {
+    padding: .625rem;
+}
+
+.Promocion-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00B0F6;
+    margin-bottom: .1875rem;
+}
+
+.Promocion-contenido {
+    font-size: 0.875rem;
+    line-height: 1.2;
+    margin-bottom: .3125rem;
+}
+
+.Promocion-disclaimer {
+    color: #fff;
+    padding: 0.625rem;
+    font-size: .625rem;
+    margin-top: 0.625rem;
+    text-align: center;
+    opacity: 50%;
+}
+
+/* Para que la condición de la condición de la promoción tenga más detaque */
+.Promocion-disclaimer:hover {
+    color: white;
+    opacity: 100%;
+}
+
+/* Efecto hover para que las promociones especiales aumenten ligeramente de tamaño al posarse sobre la caja */
+.Promocion:hover {
+    transform: scale(1.08);
+}
+
+
+/* Contenedor principal de la sección ¿Cómo llegar? */
+.Informacion_Container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    background-color: white;
+    gap: 2rem;
+}
+
+/* Ocupa el 60% del ancho del contenedor principal para que quede más proporcional respecto al mapa */
+.Informacion_Contenido {
+    flex: 1 1 60%;
+    max-width: 60%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Informacion_Titulo {
+    font-size: 2rem;
+    margin-bottom: .625rem;
+}
+
+.Cine_Direccion,
+.Cine_Nombre {
+    font-size: 16px;
+    color: #00B0F6;
+}
+
+.Informacion_Lista {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    color: black;
+    font-size: 0.875rem;
+}
+
+.Informacion_Lista li {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 0.3125rem;
+    align-items: center;
+}
+
+.Informacion_Lista li strong {
+    color: black;
+}
+
+/* Contenedor del mapa que ocupa el 40% del ancho del contenedor principal */
+.Informacion_Mapa {
+    flex: 1 1 40%;
+    max-width: 40%;
+    text-align: right;
+    display: flex;
+    align-items: stretch;
+}
+
+.Informacion_Mapa iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 5px;
+}
+
+/* Aumentar ligeramente el tamaño del mapa al posarse sobre el mapa */
+
+.Informacion_Mapa:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* CLUB RENOIR */
+
+
+/* Empezamos con la imagen del Header */
+.FotoHeader {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FotoHeader img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Responsive para esta imagen del header */
+@media screen and (min-width: 1200px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        margin-top: 2rem;
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 769px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        margin-top: 2rem;
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 468px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Titulo_Precio {
+        padding-top: 1rem; 
+        font-size: 24px; 
+    }
+
+    .Container_Club_Content {
+        padding: 1rem 0; 
+        max-width: 100%; 
+    }
+}
+
+@media screen and (max-width: 467px) {
+    .FotoHeader img {
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+/* Ahora los estilos del Container general del Hazte Socio */
+
+.Container_Club_Content {
+    padding: 2rem 0 2rem 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Container_Club {
+    background-color: black;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.Titulo_Precio {
+    font-size: 32px;
+}
+
+/* Container para el hazte socio */
+
+.Container_Tarjeta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.Tarjeta {
+    max-width: 350px;
+    background-color: white;
+    padding: 2rem;
+    color: black;
+    margin-top: 2rem;
+}
+
+.Tarjeta_Price p {
+    margin-top: -15px;
+    text-align: center;
+    font-weight: bold;
+    color: #00B0F6;
+}
+
+.Tarjeta_Circle {
+    width: 12.5rem;
+    height: auto;
+    margin: 0.2rem auto;
+}
+
+.Tarjeta_Circle img {
+    max-width: 100%;
+    box-sizing: content-box;
+}
+
+.Tarjeta_Price_Euro {
+    margin: 0;
+    font-size: 55px;
+}
+
+.Tarjeta_Price_SubEuro {
+    font-size: 16pt;
+}
+
+.Tarjeta_Price_Valido {
+    color: #00B0F6 !important;
+    font-style: normal;
+    margin: 0.1rem auto 0.5rem auto !important;
+    width: fit-content;
+    padding: 0.3rem 0.5rem;
+}
+
+.Tarjeta_List {
+    padding: 0;
+    margin-top: 2rem;
+}
+
+/* Creamos la lista dentro de la caja de membresías */
+.Tarjeta_List li {
+    text-align: left;
+    list-style-type: none;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.Tarjeta_List li::before {
+    content: url('../Assets/Check_Club.svg');
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.Tarjeta:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive para la sección de las tarjetas de membresía */
+
+@media (max-width: 1200px) {
+    .Container_Club_Content {
+        max-width: 90%; 
+    }
+    .Container_Tarjeta {
+        gap: 2rem; /* Reduce el espacio entre las tarjetas */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .Container_Club {
+        padding-bottom: 3.125rem;
+    }
+    .Container_Club_Content {
+        max-width: 95%; 
+        padding: 0 1rem;
+    }
+    .Container_Tarjeta {
+        flex-direction: column; /* Ahora las colocamos verticalmente */
+        gap: 2rem; /* Mantiene el gap entre las dos tarjetas */
+        align-items: center; /* Las alineamos al centro */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .Container_Club {
+        padding-bottom: 3.125rem;
+    }
+
+    .Titulo_Precio {
+        font-size: 24px; /* Reducimos un poco el tamaño de la letra */
+    }
+    .Tarjeta {
+        max-width: 100%; 
+        padding: 1.5rem;
+    }
+    .Tarjeta_Price_Euro {
+        font-size: 45px; /* También reducimos aquí el tamaño */
+    }
+    .Tarjeta_Price_SubEuro {
+        font-size: 14pt;
+    }
+    .Container_Club_Content {
+        padding: 1rem;
+    }
+}
+
+
+/* Estilo para los detalles del formulario como líneas o cajas */
+
+.Titulo_Form {
+    font-size: 32px;
+}
+
+input,
+select {
+    border-bottom: 1px solid gray;
+    font-size: 12pt;
+    margin-top: 15px;
+
+}
+
+input {
+    line-height: 2rem;
+}
+
+select {
+    font-family: "Afacad Flux";
+    border-bottom: .0313rem solid black;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 0.4rem;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    font-family: "Afacad Flux";
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00B0F6;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: black;
+}
+
+.Disclaimer_Formulario_Instrucciones {
+    background-color: #00B0F6;
+    color: white;
+    margin-top: 1.25rem;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.Container_Formulario {
+    padding-top: 2rem;
+    max-width: 800px;
+    font-weight: bold;
+
+}
+
+/* Ahora el formato de todo el formulario */
+.Form_Row {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.Form_Row div {
+    flex: 1 1 30%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Diseño responsive para el formulario */
+
+@media (max-width: 1200px) {
+    .Container_Formulario {
+        margin-top: 1.875rem;
+        max-width: 900px; 
+        padding: 0 3rem; 
+    }
+    
+    .Form_Row div {
+        flex: 1 1 45%; /* Para incrementar el ancho de las filas */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .Titulo_Form {
+        margin-top: 2rem;
+    }
+
+    .Container_Formulario {
+        max-width: 90%; /* El formulario ahora toma el 90% de la pantalla */
+        padding: 0 1rem; 
+    }
+    
+    .Form_Row {
+        flex-direction: column; /* Los elementos ahora se vuelven columnas */
+        gap: 2rem; /* Aumentamos un poco el gap de las filas */
+    }
+    
+    .submit-btn {
+        width: 100%; /* El botón del final ocupa el largo proporcional */
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .Container_Formulario {
+        max-width: 95%; 
+        padding: 0 1rem; 
+    }
+    
+    input, select, .submit-btn {
+        font-size: 10pt; /* Reduce el tamaño de la fuente */
+    }
+}
+
+/* Este es el estilo para el MODAL del HOME, daremos configuración al elemento emergente */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Active state to display modal */
+.modal.active {
+    display: flex;
+}
+
+.trailer-container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Contenido del MODAL */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    /* Expand the modal size for video */
+    border-radius: 8px;
+    max-width: 900px;
+    text-align: left;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Botón para cerrar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modalBuyButton {
+    padding: 1rem;
+    background-color: #00B0F6;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 1rem;
+}

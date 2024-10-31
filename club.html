@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cines Renoir | Club Renoir </title>
+  <link rel="stylesheet" href="CSS/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5d40bbd092.js" crossorigin="anonymous"></script>
+  <script defer src="JS/index.js"></script>
+</head>
+
+<body>
+
+  <!-- En el Header encontraremos el logo, el menú de navegación y dos botones: uno de acceso y otro un menú deslizable. Los iconos se agregan desde el código proporcionado en FontAwesome -->
+  <div class="Header">
+    <div class="Logo">
+      <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+
+    </div>
+    <nav class="Menu_Header">
+      <ul>
+        <li><a href="index.html">cartelera</a></li>
+        <li><a href="promociones.html">promociones</a></li>
+        <li><a href="club.html">club Renoir</a></li>
+      </ul>
+    </nav>
+
+    <div class="MenuButton" id="MenuBurger">
+      <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+    </div>
+
+    <div class="BotonSocio">
+      <i class="fa-regular fa-circle-user"></i>
+      acceso socios club
+    </div>
+    <div class="BotonCiudad" id="botonCiudad">
+      <i class="fa-solid fa-caret-right" style="color: #000000;"></i>
+      Barcelona
+    </div>
+
+  </div>
+
+  <!-- Este es el menú que aparecerá en el responsive y colocaremos en el JavaScript -->
+  <div class="MenuHeaderShow" id="MenuMobile">
+    <ul class="MenuMobileList">
+      <li onclick="window.location.href='index.html'">Cartelera</li>
+      <li onclick="window.location.href='promociones.html'">Promociones</li>
+      <li onclick="window.location.href='club.html'">Club Renoir</li>
+      <li onclick="window.location.href='#'">Acceso Socios Club</li>
+    </ul>
+  </div>
+
+  <!-- Denominamos ContainerPrincipal al slider que contendrá la imagen de la película, detalles de la misma y dos flechas laterales
+      para navegar dentro de él. Al dar click, el usuario se redirige a la página con explicación detallada de la película -->
+
+  <section class="ContainerPrincipal">
+    <div class="FotoHeader">
+      <img src="Assets/banner_club.png" alt="TarjetaRenoir">
+    </div>
+
+    <!-- Es la barra que separa una sección de otra -->
+    <div class="barra-celeste"></div>
+
+    <!-- Aqui va el container con las dos modalidades de inscripción. Cada una tendrá un bloque  -->
+    <div class="Container_Club">
+      <div class="Container_Club_Content">
+        <div class="Container_Club_Header">
+          <h1 class="Titulo_Precio">Hazte socio del club Renoir</h1>
+          <p>
+            Te ofrecemos dos modalidades para que tu experiencia en el cine
+            sea la mejor para ti. Escoge la membresía que más te convenga,
+            llena el formulario de inscripción y empieza a disfrutar de tus
+            beneficios desde el primer día.
+          </p>
+        </div>
+
+        <!-- La información de cada tipo de membresía  -->
+        <div class="Container_Tarjeta">
+          <div class="Tarjeta">
+            <div class="Tarjeta_Circle">
+              <img src="Assets/Tarjeta_Compartida.png" alt="TarjetaCompartida">  
+            </div>
+            <div class="Tarjeta_Price">
+              <p class="Tarjeta_Price_Euro">15€</p>
+              <p class="Tarjeta_Price_SubEuro">Tarjeta individual</p>
+              <p class="Tarjeta_Price_Valido">- válida durante 1 año -</p>
+            </div>
+            <div class="Tarjeta_List">
+              <ul class="Tarjeta_List">
+                <li> 2 invitaciones válidas para cualquier día y sesión solo con
+                  hacerte socio </li>
+                <li>Entradas a precio reducido para el titular</li>
+                <li>Te invitamos al cine por tu cumpleaños</li>
+                <li>Accesso exclusivo a preestrenos</li>
+                <li>Participa en sorteos solo por ser miembro</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="Tarjeta">
+            <div class="Tarjeta_Circle">
+              <img src="Assets/Tarjeta_Individual.png" alt="TarjetaIndividual">
+            </div>
+            <div class="Tarjeta_Price">
+              <p class="Tarjeta_Price_Euro">25€</p>
+              <p class="Tarjeta_Price_SubEuro">Tarjeta compartida</p>
+              <p class="Tarjeta_Price_Valido">- válida durante 1 año -</p>
+            </div>
+            <div class="Tarjeta_List">
+              <ul class="Tarjeta_List">
+                <li>
+                  2 invitaciones válidas para cualquier día y sesión solo con
+                  hacerte socio
+                </li>
+                <li>Entradas a precio reducido para el titular</li>
+                <li>Te invitamos al cine por tu cumpleaños</li>
+                <li>Accesso exclusivo a preestrenos</li>
+                <li>Participa en sorteos solo por ser miembro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección para el Formulario de inscripción  -->
+    <div class="Container_Club_Content">
+      <div class="Disclaimer_Formulario">
+        <h1 class="Titulo_Form">¡Únete hoy!</h1>
+        <div class="Disclaimer_Formulario_Instrucciones">
+          INSTRUCCIONES PARA RELLENAR EL FORMULARIO: Debes proporcionar una dirección de correo válida y de uso personal 
+          (no es recomendable usar direcciones de correo de la empresa para la que trabajas) para que podamos enviarte correos sin problemas.
+        </div>
+      </div>
+      <!-- Colocamos una dirección de correo electrónico al no haber servidor donde alojar la información que se envíe  -->
+      <div class="Container_Formulario">
+        <form action="mailto:mvillafranca@alumnos.cei.es" method="post" enctype="text/plain">
+          <div class="Form_Row">
+            <div>
+              <label for="modalidad">Tipo de modalidad</label>
+              <select id="modalidad" name="modalidad" required>
+                <option value="">Selecione</option>
+                <option value="individual">Individual</option>
+                <option value="compartida">Compartida</option>
+              </select>
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+            <div>
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos" required />
+            </div>
+            <div>
+              <label for="telefono">Teléfono (opcional)</label>
+              <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" />
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+              <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
+            </div>
+            <div>
+              <label for="sexo">Sexo</label>
+              <select id="sexo" name="sexo" required>
+                <option value="">Seleccione</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="dni">DNI, NIF o NIE</label>
+              <input type="text" id="dni" name="dni" required pattern="[0-9XYZ][0-9]{7}[A-Za-z]" />
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="repite_email">Repite Email</label>
+              <input type="email" id="repite_email" name="repite_email" required />
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="provincia">Provincia del cine al que más asistes</label>
+              <select id="provincia" name="provincia" required>
+                <option value="">Seleccione</option>
+                <option value="madrid">Madrid</option>
+                <option value="barcelona">Barcelona</option>
+              </select>
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label for="codigo_postal">Dirección y código postal</label>
+              <input type="text" id="codigo_postal" name="codigo_postal" required pattern="[0-9]{5}" />
+            </div>
+          </div>
+          <div class="Form_Row">
+            <div>
+              <label><input type="checkbox" name="recibir_cartelera" required />
+                Acepto recibir novedades de la cartelera </label>
+              <br />
+              <label><input type="checkbox" name="aceptar_condiciones" required />
+                Acepto los términos y condiciones</label>
+            </div>
+          </div>
+          <div class="Form_Row">
+            <button type="submit" class="submit-btn">Pagar y hacerse socio</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+   <!-- Footer de igual estructura que en toda la página-->
+    <Footer>
+        <div class="ContainerSocial">
+            <div class="LogoFooter">
+              <a href="index.html"><img src="Assets/LogoRenoir.png" alt="Renoir"></a>
+            </div>
+        </div>
+
+        <div class="FooterMenu">
+            <div class="ListaFooter">
+                <ul>
+                    <li><a href="index.html">cartelera</a></li>
+                    <li><a href="promociones.html">promociones</a></li>
+                </ul>
+            </div>
+
+            <div class="ListaFooter">
+                <ul>
+                    <li><a href="club.html">hazte socio</a></li>
+                </ul>
+            </div>
+
+            <!-- En esta parte de redes sociales, optamos por abrir los enlaces fuera del sitio web -->
+
+            <div class="ListaFooter">
+                <div class="FooterSocial">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/cinesrenoir/" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://x.com/cinesrenoir" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/cinesrenoir/" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </Footer>
+
+    <script>
+      function test() {
+        console.log("inline js")
+        let menuShown;
+        document.getElementById("MenuMobile").style.display === "block" ? menuShown = "none" : menuShown = "block";
+
+        document.getElementById("MenuMobile").style.display = menuShown;
+      }
+    </script>
+
+</body>
+
+
+</html>
